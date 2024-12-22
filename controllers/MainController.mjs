@@ -23,13 +23,20 @@ class MainController {
         }
     }
 
-    static sendQuiz(req, res) {
-        const url = `http//localhost:3000/quiz/${encodeURIComponent(req.params.encryptedQuiz)}`
+    static sendQuiz(req, res) {  
+        const host = req.headers.referer;
+        
+        const url = `${host}quiz/${encodeURIComponent(req.params.encryptedQuiz)}`
         res.render("sendQuiz", { style: "sendQuiz", script: "sendQuiz", url })
     }
 
-    static quiz(req, res) {
+    static async quiz(req, res) {
+        const { encryptedQuiz } = req.params;
 
+        const decryptedQuiz = await Encrypt.decryptJSON(encryptedQuiz);
+
+        res.render("quiz", { style: "quiz", script: "quiz", quiz: decryptedQuiz });
+        
     }
 }
 

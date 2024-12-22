@@ -1,3 +1,19 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+main p {
+    margin-bottom: -27px;
+    font-family: 'Times New Roman', Times, serif;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
 div {
     width: 100%;
     max-width: 500px;
@@ -10,25 +26,43 @@ div {
 }
 
 div:hover {
-    border: 1px solid white;
+    outline: 1px solid white;
 }
 
 div:hover > i {
     opacity: 1;
 }
 
-div:hover > h2 {
-    opacity: 0.5;
+div:hover > h3 {
+    opacity: 0.5 !important;
 }
 
 h2 {
-    font-size: large;
+    text-align: center;
+    width: 100%;
+    color: white;
+}
+
+textarea {
+    width: 100%;
+    height: 20px;
+    background-color: transparent;
+    border: none;
+    resize: none;
+    font-weight: bold;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: large;
     overflow: hidden;
     opacity: 1;
     color: white;
     transition: opacity 0.2s ease-in-out;
+    user-select: none;
+    pointer-events: none;
+}
+
+textarea:focus {
+    outline: none;
 }
 
 i {

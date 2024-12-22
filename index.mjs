@@ -12,7 +12,12 @@ app.use(express.urlencoded({
 }));
 
 app.engine("hbs", exphbs.engine({
-    extname: "hbs"
+    extname: "hbs",
+    helpers: {
+        increment: function(value) {
+            return value + 1;
+        }
+    }
 }));
 
 app.set("view engine", "hbs");

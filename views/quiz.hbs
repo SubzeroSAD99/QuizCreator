@@ -1,0 +1,23 @@
+<form action="/quiz" method="post">
+    <h2>{{quiz.title}}kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</h2>
+    <div id="questions-container">
+        {{#each quiz}}
+            <div class="questions">
+                <div class="title">
+                    <div class="num-quiz"><p>{{increment @index}}</p></div>
+                    <h3>{{this.question}}</h3>
+                </div>
+                <div class="alternatives">
+                    {{#each this.answers}}
+                        <input type="radio" name="resp{{increment @../index}}" id="resp{{increment @../index}}-{{increment @index}}" value="{{this}}">
+                        <label for="resp{{increment @../index}}-{{increment @index}}">{{this}}</label>
+                    {{/each}}
+                </div>
+            </div>
+
+            {{#unless @last}}<hr>{{/unless}}
+        {{/each}}
+    </div>
+
+    <input type="submit" value="Enviar">
+</form>
