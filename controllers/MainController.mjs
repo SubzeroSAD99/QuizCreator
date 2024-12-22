@@ -33,10 +33,37 @@ class MainController {
     static async quiz(req, res) {
         const { encryptedQuiz } = req.params;
 
-        const decryptedQuiz = await Encrypt.decryptJSON(encryptedQuiz);
+        try {
+            const decryptedQuiz = await Encrypt.decryptJSON(encryptedQuiz);
+    
+            res.render("quiz", { style: "quiz", script: "quiz", quiz: decryptedQuiz });
+        } catch(err) {
+            res.redirect("/");
+        }
+    }
 
-        res.render("quiz", { style: "quiz", script: "quiz", quiz: decryptedQuiz });
+    static async verifyResps(req, res) {
+        const resps = req.body;
+        let { origin, referer } = req.headers;
+        origin += "/quiz/";
+
+        let rightsAnswersCount = 0;
         
+        try {
+            const encryptedQuiz = decodeURIComponent(referer.replace(origin, ""));
+            const decryptedQuiz = await Encrypt.decryptJSON(encryptedQuiz);
+            
+            decryptedQuiz.forEach((it, index) => {
+                if(it.correct == resps[`resp${index+1}`]) rightsAnswersCount++;
+            });
+
+            const percentage = (rightsAnswersCount / decryptedQuiz.length) * 100;
+            
+            res.render("score", { style: "score", script: "score", questions: decryptedQuiz.length, rightQuestions: rightsAnswersCount, percentage })
+        } catch(err) {
+            console.log(err);
+            res.redirect("/");
+        }
     }
 }
 

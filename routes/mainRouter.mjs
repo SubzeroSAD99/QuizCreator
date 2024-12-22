@@ -8,5 +8,5 @@ router.post("/", MainController.createQuiz);
 
 router.get("/send-quiz/:encryptedQuiz", MainController.sendQuiz);
 router.get("/quiz/:encryptedQuiz", MainController.quiz);
-
+router.post("/quiz", MainController.verifyResps);
 export default router;

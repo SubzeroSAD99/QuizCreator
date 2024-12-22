@@ -1,5 +1,6 @@
 :root {
     --main-color: rgb(0, 126, 126);
+    --dark-gray: rgb(51, 51, 51);
 }
 
 * {
@@ -28,6 +29,7 @@ header {
 
 main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;

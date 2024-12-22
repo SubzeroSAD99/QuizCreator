@@ -33,7 +33,7 @@ h2, h3 {
     width: 100%;
     word-wrap: break-word;
     align-self: flex-start;
-    background-color: rgb(51, 51, 51);
+    background-color: var(--dark-gray);
     padding: 5px;
     border-radius: 7px;
 }

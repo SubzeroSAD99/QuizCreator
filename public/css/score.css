@@ -1,0 +1,56 @@
+:root {
+    --circle-color: green;
+}
+
+main {
+    gap: 30px;
+}
+
+.progress-circle {
+    width: 140px;
+    height: 140px;
+    background: conic-gradient(
+        var(--circle-color) 0deg,
+        var(--circle-color) calc(var(--percentage) * 3.6deg),
+        white calc(var(--percentage) * 3.6deg)
+    );
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0px 0px 0px 0px var(--circle-color);
+    animation: animShadow 1.3s linear infinite;
+}
+    
+div#percentage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-gray);
+    color: white;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+strong {
+    color: var(--circle-color);
+}
+
+@keyframes animShadow {
+    0% {
+        box-shadow: 0px 0px 0px 0px var(--circle-color);
+    }
+
+    50% {
+        box-shadow: 0px 0px 12px 0px var(--circle-color);
+    }
+
+    100% {
+        box-shadow: 0px 0px 0px 0px var(--circle-color);
+    }
+}
