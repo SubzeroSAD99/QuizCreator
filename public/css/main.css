@@ -1,0 +1,34 @@
+:root {
+    --main-color: rgb(0, 126, 126);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html, body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    background-color: #202020;
+}
+
+header {
+    width: 100%;
+    padding: 8px 15px;
+    background-color: var(--main-color);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}

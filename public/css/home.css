@@ -1,0 +1,232 @@
+div#edit-alternative {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+}
+
+div#edit-alternative div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 90%;
+    max-width: 500px;
+}
+
+form, div.questions, div#questions-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+}
+
+button {
+    align-self: flex-start;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    transition: filter 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    font-size: x-large;
+    background-color: var(--main-color);
+    color: white;
+    position: relative;
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(145%);
+    box-shadow: 0px 0px 8px 0px var(--main-color);
+}
+
+button.add-alternative {
+    align-self: center;
+    width: 100%;
+    max-width: 200px;
+    height: 28px;
+    border-radius: 5px;
+    font-size: 0.9em;
+
+}
+
+div.alternatives {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+}
+
+div.alternatives > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    transition: background-color 0.3s linear;
+}
+
+div.alternatives > div > button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5px;
+    width: 25px;
+    height: 25px;
+    font-size: medium;
+    background-color: green;
+    color: white;
+}
+
+div.alternatives > div > button:hover {
+    box-shadow: 0px 0px 8px 0px green;
+}
+
+div.alternatives > div:has(input[name="correct"]) {
+    background-color: green;
+    border-radius: 5px;
+}
+
+div.alternatives > div:has(input[name="correct"]) > button {
+    display: none;
+}
+
+input {
+    width: 100%;
+    height: 30px;
+    padding: 8px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+input[type="submit"] {
+    background-color: var(--main-color);
+    color: white;
+    transition: filter 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    filter: brightness(145%);
+    box-shadow: 0px 0px 8px 0px var(--main-color);
+}
+
+div#edit-alternative input {
+    background-color: transparent;
+    color: white;
+    border-radius: 0px;
+    border-bottom: 2px solid white;
+    font-size: medium;
+}
+
+div#edit-alternative input:focus {
+    outline: none;
+}
+
+div#edit-alternative button {
+    align-self: auto;
+    width: inherit;
+    height: 25px;
+    max-width: 100px;
+    border-radius: 5px;
+    font-size: medium;
+}
+
+input.answers {
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+}
+
+input.answers:focus {
+    outline: none;
+}
+
+input[type="radio"] {
+   display: none;
+}
+  
+input[type="radio"] + label {
+    position: relative;
+    padding-left: 32px;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 600;
+    display: inline-block;
+    line-height: 23px;
+    transition: color 0.2s ease;
+    user-select: none;
+}
+  
+input[type="radio"] + label::before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--main-color); 
+    background-color: white;
+    transition: background-color 0.6s ease, border-color 0.2s ease;
+}
+  
+input[type="radio"]:checked + label::before {
+    background-color: var(--main-color);
+    border-color: white;
+}
+  
+input[type="radio"] + label:hover {
+    color: var(--main-color);
+}
+
+hr {
+    width: 100%;
+    margin: 40px 0px;
+    opacity: 0.5;
+}
+
+.showEditAlt {
+    display: flex !important;
+    animation: showEditAlt 0.3s ease-in-out forwards;
+}
+
+.hideEditAlt {
+    animation: hideEditAlt 0.3s ease-in-out forwards;
+}
+
+@keyframes showEditAlt {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes hideEditAlt {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

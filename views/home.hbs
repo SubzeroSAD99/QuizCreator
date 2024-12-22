@@ -1,0 +1,21 @@
+<div id="edit-alternative" data-type="none">
+    <div>
+        <input type="text" name="alternative" id="alt-value">
+        <button type="button" id="save-edit">Salvar</button>
+    </div>
+</div>
+
+<form action="/" method="post">
+    <button type="button" aria-label="Adicionar Pergunta" id="add-question">+</button>
+    
+    <div id="questions-container">
+        <div class="questions">
+            <input type="text" name="question" placeholder="Questão 1" required/>
+            <div class="alternatives">
+                <button type="button" class="add-alternative" id="resp1" data-alt-count="0" onclick="addAlternative(this)">+ Adicionar Alternativa</button>
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" value="Criar">
+</form>
