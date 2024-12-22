@@ -1,5 +1,4 @@
 // models/encryption.js
-import { log } from "console";
 import crypto from "crypto";
 import dotenv from "dotenv";
 dotenv.config();
